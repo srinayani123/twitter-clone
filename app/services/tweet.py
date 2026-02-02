@@ -1,4 +1,4 @@
-from typing import Optional, List, Tuple
+from typing import Optional, List
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, update, delete
 from sqlalchemy.orm import selectinload
@@ -6,7 +6,6 @@ from fastapi import HTTPException, status
 from app.models import Tweet, Like, Retweet, User
 from app.schemas.tweet import TweetCreate, TweetWithAuthor, TweetAuthor
 from app.core.redis import RedisClient
-from app.config import settings
 
 
 class TweetService:

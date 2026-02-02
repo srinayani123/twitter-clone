@@ -1,7 +1,7 @@
 import json
 import asyncio
 from typing import Dict, Set, Optional
-from fastapi import WebSocket, WebSocketDisconnect
+from fastapi import WebSocket
 from app.core.redis import redis_client
 
 

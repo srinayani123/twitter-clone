@@ -7,8 +7,7 @@ from sqlalchemy.pool import NullPool
 
 from app.main import app
 from app.database import Base, get_db
-from app.core.redis import redis_client, get_redis, RedisClient
-from app.config import settings
+from app.core.redis import get_redis
 
 # Test database URL (use SQLite for simplicity or PostgreSQL)
 TEST_DATABASE_URL = "sqlite+aiosqlite:///./test.db"

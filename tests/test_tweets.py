@@ -128,7 +128,7 @@ class TestTweets:
         # Verify like count increased
         get_response = await client.get(f"/tweets/{tweet_id}")
         assert get_response.json()["likes_count"] == 1
-        assert get_response.json()["is_liked"] == True
+        assert get_response.json()["is_liked"]
     
     @pytest.mark.asyncio
     async def test_unlike_tweet(self, authenticated_client):
@@ -151,7 +151,7 @@ class TestTweets:
         # Verify like count decreased
         get_response = await client.get(f"/tweets/{tweet_id}")
         assert get_response.json()["likes_count"] == 0
-        assert get_response.json()["is_liked"] == False
+        assert not get_response.json()["is_liked"]
     
     @pytest.mark.asyncio
     async def test_double_like_fails(self, authenticated_client):
@@ -193,7 +193,7 @@ class TestTweets:
         # Verify retweet count increased
         get_response = await client.get(f"/tweets/{tweet_id}")
         assert get_response.json()["retweets_count"] == 1
-        assert get_response.json()["is_retweeted"] == True
+        assert get_response.json()["is_retweeted"]
     
     @pytest.mark.asyncio
     async def test_reply_to_tweet(self, authenticated_client):

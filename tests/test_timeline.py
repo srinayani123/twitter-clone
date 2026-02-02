@@ -15,7 +15,7 @@ class TestTimeline:
         assert response.status_code == 200
         data = response.json()
         assert data["tweets"] == []
-        assert data["has_more"] == False
+        assert not data["has_more"]
     
     @pytest.mark.asyncio
     async def test_get_home_timeline_with_tweets(self, authenticated_client):
@@ -68,7 +68,7 @@ class TestTimeline:
         assert response.status_code == 200
         data = response.json()
         assert len(data["tweets"]) == 10
-        assert data["has_more"] == True
+        assert data["has_more"]
         assert data["next_cursor"] is not None
         
         # Get second page
